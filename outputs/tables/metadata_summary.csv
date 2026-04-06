@@ -1,0 +1,5 @@
+metric,value
+n_stations,6
+n_chile,3
+n_argentina,3
+source,AmeriFlux/FLUXNET metadata via fluxnet-shuttle

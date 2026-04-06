@@ -1,0 +1,3 @@
+site_id,site_name,variables_present,standardized_core_variables_present,source_file,notes
+CL-SDF,Senda Darwin Forest,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/CL-SDF,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+CL-SDP,Senda Darwin Peatland,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/CL-SDP,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.

@@ -1,0 +1,21 @@
+usage: fluxnet-shuttle [-h] [-l LOGFILE] [-v] [--no-logfile] [--version]
+                       {listall,download,listdatahubs} ...
+
+FLUXNET Shuttle - Download and manage FLUXNET data from multiple data hubs
+
+positional arguments:
+  {listall,download,listdatahubs}
+                        Available commands
+    listall             List all available FLUXNET data
+    download            Download FLUXNET data
+    listdatahubs        List available data hub plugins
+
+options:
+  -h, --help            show this help message and exit
+  -l LOGFILE, --logfile LOGFILE
+                        Logging file path (default: fluxnet-shuttle-run.log)
+  -v, --verbose         Enable verbose logging
+  --no-logfile          Disable logging to file
+  --version             show program's version number and exit
+
+For more information, visit: https://github.com/fluxnet/shuttle

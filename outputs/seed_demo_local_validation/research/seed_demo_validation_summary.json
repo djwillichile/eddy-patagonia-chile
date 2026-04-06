@@ -1,0 +1,26 @@
+{
+  "sites_validated": [
+    "CL-SDF",
+    "CL-SDP"
+  ],
+  "n_sites": 2,
+  "total_observations_by_site": {
+    "CL-SDF": 2922,
+    "CL-SDP": 2922
+  },
+  "utility_score_by_site": {
+    "CL-SDF": 0.886,
+    "CL-SDP": 0.902
+  },
+  "quality_class_by_site": {
+    "CL-SDF": "high",
+    "CL-SDP": "high"
+  },
+  "files": {
+    "stations_metadata": "/home/ubuntu/eddy-patagonia-chile/outputs/seed_demo_local_validation/tables/stations_metadata_seed_demo.csv",
+    "variables_by_station": "/home/ubuntu/eddy-patagonia-chile/outputs/seed_demo_local_validation/tables/variables_by_station_seed_demo.csv",
+    "stations_quality": "/home/ubuntu/eddy-patagonia-chile/outputs/seed_demo_local_validation/tables/stations_quality_seed_demo.csv",
+    "station_overview": "/home/ubuntu/eddy-patagonia-chile/outputs/seed_demo_local_validation/tables/station_overview_seed_demo.csv",
+    "map": "/home/ubuntu/eddy-patagonia-chile/outputs/seed_demo_local_validation/maps/stations_map_seed_demo.html"
+  }
+}

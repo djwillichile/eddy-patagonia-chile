@@ -1,0 +1,7 @@
+site_id,site_name,variables_present,standardized_core_variables_present,source_file,notes
+AR-CCg,Carlos Casares grassland,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/AR-CCg,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+AR-TF1,Rio Moat bog,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/AR-TF1,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+AR-TF2,Rio Pipo bog,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/AR-TF2,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+CL-ACF,Alerce Costero Forest,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/CL-ACF,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+CL-SDF,Senda Darwin Forest,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/CL-SDF,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.
+CL-SDP,Senda Darwin Peatland,"NEE, GPP, LE, H, TA, SW_IN","NEE, GPP, LE, H, TA, SW_IN",data/raw/CL-SDP,Standardized from daily FLUXMET product. Additional variables preserved in original raw files.

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d10883883e61a6428bbf808cf212f4e5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(22,50,47,0.88); color: #f7f3ea; padding: 12px 18px; border-radius: 14px; box-shadow: 0 12px 28px rgba(0,0,0,0.18); font-family: Georgia, serif;">
+      <div style="font-size: 16px; font-weight: bold;">Eddy covariance stations in Chile and nearby Patagonia</div>
+      <div style="font-size: 12px; opacity: 0.9; margin-top: 4px;">Validated and processed from AmeriFlux/FLUXNET products with a reproducible Python pipeline</div>
+    </div>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        z-index: 9999;
+        background: rgba(249, 247, 241, 0.95);
+        border: 1px solid rgba(22, 50, 47, 0.18);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-radius: 12px;
+        padding: 14px 16px;
+        min-width: 220px;
+        font-family: Georgia, serif;
+        color: #16322f;">
+      <div style="font-size: 14px; font-weight: bold; margin-bottom: 8px;">Station quality</div>
+      <div style="font-size: 12px; margin-bottom: 6px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#2F6B3B; margin-right:8px;"></span>High</div>
+      <div style="font-size: 12px; margin-bottom: 6px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#C78C1B; margin-right:8px;"></span>Medium</div>
+      <div style="font-size: 12px; margin-bottom: 10px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#A43A2A; margin-right:8px;"></span>Low</div>
+      <div style="font-size: 12px; line-height: 1.4;">Marker size is proportional to the number of observations in the standardized daily dataset.</div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_d10883883e61a6428bbf808cf212f4e5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d10883883e61a6428bbf808cf212f4e5 = L.map(
+                "map_d10883883e61a6428bbf808cf212f4e5",
+                {
+                    center: [-44.9432, -69.52663333333332],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_d10883883e61a6428bbf808cf212f4e5);
+
+            
+
+        
+    
+            var tile_layer_6a977375d468039c78c1f5433dfd59e0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6a977375d468039c78c1f5433dfd59e0.addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topright",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+            var circle_marker_9fbdacada7d593e965435374186f11fe = L.circleMarker(
+                [-35.9244, -61.1855],
+                {"bubblingMouseEvents": true, "color": "#2F6B3B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2F6B3B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_d4d36e428e105566ec43b6578989a420 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_8542429735c0313a11ba366b9f324875 = $(`<div id="html_8542429735c0313a11ba366b9f324875" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>AR-CCg — Carlos Casares grassland</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Argentina</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Grassland</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2018–2024</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>2557</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.837</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>high</td></tr>       </table>     </div>     </div>`)[0];
+                popup_d4d36e428e105566ec43b6578989a420.setContent(html_8542429735c0313a11ba366b9f324875);
+            
+        
+
+        circle_marker_9fbdacada7d593e965435374186f11fe.bindPopup(popup_d4d36e428e105566ec43b6578989a420)
+        ;
+
+        
+    
+    
+            circle_marker_9fbdacada7d593e965435374186f11fe.bindTooltip(
+                `<div>
+                     AR-CCg | Carlos Casares grassland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_375fd7ed979d3ec752618f7075458290 = L.circleMarker(
+                [-54.9733, -66.7335],
+                {"bubblingMouseEvents": true, "color": "#C78C1B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C78C1B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_0972a31d653f1909b789a539f584a4c7 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_a01a65adcd890de9ae0fb930f91b739f = $(`<div id="html_a01a65adcd890de9ae0fb930f91b739f" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>AR-TF1 — Rio Moat bog</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Argentina</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Wetland</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2016–2018</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>1096</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.713</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>medium</td></tr>       </table>     </div>     </div>`)[0];
+                popup_0972a31d653f1909b789a539f584a4c7.setContent(html_a01a65adcd890de9ae0fb930f91b739f);
+            
+        
+
+        circle_marker_375fd7ed979d3ec752618f7075458290.bindPopup(popup_0972a31d653f1909b789a539f584a4c7)
+        ;
+
+        
+    
+    
+            circle_marker_375fd7ed979d3ec752618f7075458290.bindTooltip(
+                `<div>
+                     AR-TF1 | Rio Moat bog
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7bee0fe3eb6d31aebf2c4b36867d08c = L.circleMarker(
+                [-54.8269, -68.4549],
+                {"bubblingMouseEvents": true, "color": "#C78C1B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#C78C1B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_3de0a88f173fc2d0df0601234c7a4a67 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_b7764faaaa63b36e20a44ae135bcb425 = $(`<div id="html_b7764faaaa63b36e20a44ae135bcb425" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>AR-TF2 — Rio Pipo bog</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Argentina</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Wetland</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2016–2018</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>1096</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.678</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>medium</td></tr>       </table>     </div>     </div>`)[0];
+                popup_3de0a88f173fc2d0df0601234c7a4a67.setContent(html_b7764faaaa63b36e20a44ae135bcb425);
+            
+        
+
+        circle_marker_c7bee0fe3eb6d31aebf2c4b36867d08c.bindPopup(popup_3de0a88f173fc2d0df0601234c7a4a67)
+        ;
+
+        
+    
+    
+            circle_marker_c7bee0fe3eb6d31aebf2c4b36867d08c.bindTooltip(
+                `<div>
+                     AR-TF2 | Rio Pipo bog
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9ae0638fdf6b940a4ac73595ce2aa67c = L.circleMarker(
+                [-40.1726, -73.4439],
+                {"bubblingMouseEvents": true, "color": "#2F6B3B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2F6B3B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_4bb446b5a9f2f6b35bec4806c9065070 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_85af134009a50cb9d4fbd913e1986590 = $(`<div id="html_85af134009a50cb9d4fbd913e1986590" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>CL-ACF — Alerce Costero Forest</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Chile</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Evergreen Needleleaf Forest</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2018–2020</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>1096</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.804</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>high</td></tr>       </table>     </div>     </div>`)[0];
+                popup_4bb446b5a9f2f6b35bec4806c9065070.setContent(html_85af134009a50cb9d4fbd913e1986590);
+            
+        
+
+        circle_marker_9ae0638fdf6b940a4ac73595ce2aa67c.bindPopup(popup_4bb446b5a9f2f6b35bec4806c9065070)
+        ;
+
+        
+    
+    
+            circle_marker_9ae0638fdf6b940a4ac73595ce2aa67c.bindTooltip(
+                `<div>
+                     CL-ACF | Alerce Costero Forest
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7de26bb9f11a9ca580203b28d2bb88de = L.circleMarker(
+                [-41.883, -73.676],
+                {"bubblingMouseEvents": true, "color": "#2F6B3B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2F6B3B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_906084bd832da7b4eaf194f9645068dd = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_e5a9476de410b51a5199945ba59b0a76 = $(`<div id="html_e5a9476de410b51a5199945ba59b0a76" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>CL-SDF — Senda Darwin Forest</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Chile</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Evergreen Broadleaf Forest</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2014–2021</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>2922</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.886</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>high</td></tr>       </table>     </div>     </div>`)[0];
+                popup_906084bd832da7b4eaf194f9645068dd.setContent(html_e5a9476de410b51a5199945ba59b0a76);
+            
+        
+
+        circle_marker_7de26bb9f11a9ca580203b28d2bb88de.bindPopup(popup_906084bd832da7b4eaf194f9645068dd)
+        ;
+
+        
+    
+    
+            circle_marker_7de26bb9f11a9ca580203b28d2bb88de.bindTooltip(
+                `<div>
+                     CL-SDF | Senda Darwin Forest
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b67d63e1d18071bfa7cefbdbc5a44c06 = L.circleMarker(
+                [-41.879, -73.666],
+                {"bubblingMouseEvents": true, "color": "#2F6B3B", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2F6B3B", "fillOpacity": 0.82, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.0, "stroke": true, "weight": 1.5}
+            ).addTo(map_d10883883e61a6428bbf808cf212f4e5);
+        
+    
+        var popup_afde2e252fab212c6bffcd3a6e268104 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_27c4f3a7059f77b712b7ab33e6925335 = $(`<div id="html_27c4f3a7059f77b712b7ab33e6925335" style="width: 100.0%; height: 100.0%;">     <div style='width: 320px; font-family: Georgia, serif; color: #1f2937;'>       <h4 style='margin: 0 0 8px 0; font-size: 16px; color: #16322f;'>CL-SDP — Senda Darwin Peatland</h4>       <table style='width:100%; border-collapse: collapse; font-size: 12px;'>         <tr><td style='padding: 3px 6px;'><b>Country</b></td><td style='padding: 3px 6px;'>Chile</td></tr>         <tr><td style='padding: 3px 6px;'><b>Ecosystem</b></td><td style='padding: 3px 6px;'>Wetland</td></tr>         <tr><td style='padding: 3px 6px;'><b>Years</b></td><td style='padding: 3px 6px;'>2014–2021</td></tr>         <tr><td style='padding: 3px 6px;'><b>Observations</b></td><td style='padding: 3px 6px;'>2922</td></tr>         <tr><td style='padding: 3px 6px;'><b>Variables</b></td><td style='padding: 3px 6px;'>NEE, GPP, LE, H, TA, SW_IN</td></tr>         <tr><td style='padding: 3px 6px;'><b>Utility score</b></td><td style='padding: 3px 6px;'>0.902</td></tr>         <tr><td style='padding: 3px 6px;'><b>Quality class</b></td><td style='padding: 3px 6px; text-transform: capitalize;'>high</td></tr>       </table>     </div>     </div>`)[0];
+                popup_afde2e252fab212c6bffcd3a6e268104.setContent(html_27c4f3a7059f77b712b7ab33e6925335);
+            
+        
+
+        circle_marker_b67d63e1d18071bfa7cefbdbc5a44c06.bindPopup(popup_afde2e252fab212c6bffcd3a6e268104)
+        ;
+
+        
+    
+    
+            circle_marker_b67d63e1d18071bfa7cefbdbc5a44c06.bindTooltip(
+                `<div>
+                     CL-SDP | Senda Darwin Peatland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

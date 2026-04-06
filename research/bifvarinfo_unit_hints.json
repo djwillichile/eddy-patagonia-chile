@@ -1,0 +1,207 @@
+{
+  "AR-CCg": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolPhoton m-2 s-1",
+        "µmolCO2 mol-1",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  },
+  "AR-TF1": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolPhoton m-2 s-1",
+        "µmolCO2 mol-1",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  },
+  "AR-TF2": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolPhoton m-2 s-1",
+        "µmolCO2 mol-1",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  },
+  "CL-ACF": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolPhoton m-2 s-1",
+        "µmolCO2 mol-1",
+        "%",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  },
+  "CL-SDF": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolCO2 mol-1",
+        "%",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  },
+  "CL-SDP": {
+    "variables_with_metadata": [
+      "PRODUCT_FIRST_YEAR",
+      "PRODUCT_LAST_YEAR",
+      "PRODUCT_NAME",
+      "PRODUCT_ONEFLUX_VERSION",
+      "PRODUCT_PROCESSING_CENTER",
+      "PRODUCT_PROCESSING_DATE",
+      "PRODUCT_SOURCE_NETWORK",
+      "PRODUCT_TIME_RESOLUTION",
+      "VAR_INFO_DATE",
+      "VAR_INFO_DEFINITION",
+      "VAR_INFO_HEIGHT",
+      "VAR_INFO_MODEL",
+      "VAR_INFO_UNIT",
+      "VAR_INFO_VARNAME"
+    ],
+    "unit_hints": {
+      "VAR_INFO_UNIT": [
+        "deg C",
+        "adimensional",
+        "W m-2",
+        "hPa",
+        "kPa",
+        "mm d-1",
+        "m s-1",
+        "µmolCO2 mol-1",
+        "%",
+        "gC m-2 d-1",
+        "µmolCO2 m-2 s-1"
+      ]
+    },
+    "notes": "Unit hints extracted from BIFVARINFO where available; detailed semantic parsing may still require manual review."
+  }
+}
