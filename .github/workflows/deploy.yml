@@ -36,11 +36,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          CI: true
 
       - name: Build
         run: pnpm build
         env:
           GITHUB_PAGES_BASE: /eddy-patagonia-chile/
+          CI: true
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
