@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - claude/code-review-github-pages-Y22ek
   workflow_dispatch:
 
 permissions:
