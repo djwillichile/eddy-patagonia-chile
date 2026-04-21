@@ -1,7 +1,7 @@
 // Design reminder: regional scientific editorialism with cartographic modernism.
 // Every section should feel like a field atlas plate: asymmetrical, traceable, calm, and publication-oriented.
 
-import { MapView } from "@/components/Map";
+import { LeafletMap } from "@/components/LeafletMap";
 import { projectStats, stationData, type StationRecord } from "@/lib/stationsData";
 import {
   ArrowRight,
@@ -13,7 +13,6 @@ import {
   Trees,
   Waves,
 } from "lucide-react";
-import { useCallback } from "react";
 
 const heroImage =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663087934505/Uo4BULSidzNW4LZtgw5kEu/patagonia_atlas_hero_reference-44rCShK7gWHnhZNc6mKtna.webp";
@@ -207,48 +206,6 @@ function StationCard({ station }: { station: StationRecord }) {
 }
 
 export default function Home() {
-  const handleMapReady = useCallback((map: google.maps.Map) => {
-    const bounds = new google.maps.LatLngBounds();
-    const infoWindow = new google.maps.InfoWindow();
-
-    stationData.forEach((station) => {
-      const markerNode = document.createElement("div");
-      markerNode.className = "flex items-center justify-center rounded-full border-2 border-white text-[10px] font-bold text-white shadow-[0_18px_30px_rgba(25,38,31,0.22)]";
-      markerNode.style.background = station.qualityColor;
-      markerNode.style.width = `${Math.max(station.markerRadius * 2.6, 18)}px`;
-      markerNode.style.height = `${Math.max(station.markerRadius * 2.6, 18)}px`;
-      markerNode.textContent = station.siteId.replace("-", "");
-
-      const marker = new google.maps.marker.AdvancedMarkerElement({
-        map,
-        position: { lat: station.lat, lng: station.lon },
-        title: station.siteId,
-        content: markerNode,
-      });
-
-      marker.addListener("click", () => {
-        infoWindow.setContent(`
-          <div style="max-width: 280px; padding: 4px 2px 2px 2px; color: #223227; font-family: Arial, sans-serif;">
-            <div style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: ${station.qualityColor}; font-weight: 700; margin-bottom: 8px;">${station.siteId}</div>
-            <div style="font-size: 20px; line-height: 1.1; font-weight: 700; margin-bottom: 10px;">${station.siteName}</div>
-            <div style="font-size: 13px; line-height: 1.6; color: #506053; margin-bottom: 10px;">${station.country} · ${station.ecosystem}</div>
-            <div style="font-size: 13px; line-height: 1.7; color: #374338;">
-              <strong>Coverage:</strong> ${station.yearStart}–${station.yearEnd}<br/>
-              <strong>Observations:</strong> ${formatNumber(station.observations)}<br/>
-              <strong>Utility score:</strong> ${station.utilityScore.toFixed(3)}<br/>
-              <strong>Variables:</strong> ${station.variablesPresent.join(", ")}
-            </div>
-          </div>
-        `);
-        infoWindow.open({ map, anchor: marker });
-      });
-
-      bounds.extend({ lat: station.lat, lng: station.lon });
-    });
-
-    map.fitBounds(bounds, 120);
-  }, []);
-
   return (
     <div className="min-h-screen bg-[var(--paper)] text-[var(--ink-strong)]">
       <header className="sticky top-0 z-50 border-b border-[var(--line-soft)] bg-[rgba(248,244,235,0.84)] backdrop-blur-xl">
@@ -434,12 +391,7 @@ export default function Home() {
               </article>
 
               <article className="atlas-card overflow-hidden p-3 sm:p-4">
-                <MapView
-                  className="atlas-map h-[620px] rounded-[28px]"
-                  initialCenter={{ lat: -46.3, lng: -70.4 }}
-                  initialZoom={4}
-                  onMapReady={handleMapReady}
-                />
+                <LeafletMap className="atlas-map h-[620px] rounded-[28px]" />
               </article>
             </div>
           </div>
